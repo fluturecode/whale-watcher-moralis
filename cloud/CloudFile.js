@@ -30,10 +30,6 @@ const sendTelegramAlert = async (tx_data, token_data) => {
   );
 };
 
-// full description of how to set this up with Moralis x SendGrid here:
-// https://youtu.be/SY30AUb8144
-// docs here: https://docs.moralis.io/moralis-server/tools/sending-email
-
 const sendEmailAlert = async (request) => {
   let _link = "https://etherscan.io/tx/" + request.get("hash");
 
