@@ -1,6 +1,6 @@
 import { Box, Center, Heading, Stack } from '@chakra-ui/react';
 import { ByMoralis } from 'react-moralis';
-import { WatchAddress } from './Forms/WatchAddress';
+import { WatchAddress } from './forms/WatchAddress';
 
 export const App = () => {
   return (
