@@ -3,7 +3,7 @@ import {
   FormErrorMessage, FormLabel, HStack, Input, InputGroup,
   InputLeftElement, Select, Textarea
 } from "@chakra-ui/react";
-import { Moralis } from "moralis";
+import { Moralis } from 'moralis';
 import { Field, Form, useField } from "react-final-form";
 import validate from "../Utils/Validate";
 
@@ -229,7 +229,10 @@ const CheckboxArrayControl = ({ name, value, children }) => {
   } = useField(name, {
     type: "checkbox", // important for RFF to manage the checked prop
     value, // important for RFF to manage list of strings
-  });
+  });import { Moralis } from 'moralis';
+import { Moralis } from 'moralis';
+import { Moralis } from 'moralis';
+
   return (
     <Checkbox {...input} isChecked={checked} isInvalid={error && touched}>
       {children}
