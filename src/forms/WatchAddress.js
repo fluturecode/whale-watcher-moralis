@@ -11,11 +11,11 @@ import {
   InputGroup,
   InputLeftElement,
   Select,
-  Textarea,
+  Textarea
 } from '@chakra-ui/react';
 import { Moralis } from 'moralis';
 import { Field, Form, useField } from 'react-final-form';
-import validate from '../Utils/Validate';
+import validate from '../utils/Validate';
 
 const appId = process.env.REACT_APP_MORALIS_APPLICATION_ID;
 const serverUrl = process.env.REACT_APP_MORALIS_SERVER_URL;
