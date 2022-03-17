@@ -1,11 +1,21 @@
 import {
-  Box, Button, ButtonGroup, Checkbox, FormControl,
-  FormErrorMessage, FormLabel, HStack, Input, InputGroup,
-  InputLeftElement, Select, Textarea
-} from "@chakra-ui/react";
+  Box,
+  Button,
+  ButtonGroup,
+  Checkbox,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  HStack,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Select,
+  Textarea,
+} from '@chakra-ui/react';
 import { Moralis } from 'moralis';
-import { Field, Form, useField } from "react-final-form";
-import validate from "../Utils/Validate";
+import { Field, Form, useField } from 'react-final-form';
+import validate from '../Utils/Validate';
 
 const appId = process.env.REACT_APP_MORALIS_APPLICATION_ID;
 const serverUrl = process.env.REACT_APP_MORALIS_SERVER_URL;
@@ -43,11 +53,11 @@ export const WatchAddress = () => {
       notes: notes,
     };
     // run cloud function to watch, sync and alert
-    const watch = await Moralis.Cloud.run("watchAddress", params);
+    const watch = await Moralis.Cloud.run('watchAddress', params);
     // user feedback
     if (watch) {
       window.alert(
-        JSON.stringify(address + " added to watch list. 🐋👀", 0, 2)
+        JSON.stringify(address + ' added to watch list. 🐋👀', 0, 2)
       );
     } else {
       window.alert(
@@ -62,79 +72,79 @@ export const WatchAddress = () => {
       validate={validate}
       render={({ handleSubmit, form, submitting, pristine }) => (
         <Box
-          as="form"
+          as='form'
           p={4}
-          borderWidth="1px"
-          borderRadius="lg"
-          boxShadow="1px 1px 3px rgba(0,0,0,0.3)"
+          borderWidth='1px'
+          borderRadius='lg'
+          boxShadow='1px 1px 3px rgba(0,0,0,0.3)'
           onSubmit={handleSubmit}
         >
-          <FormLabel htmlFor="address">Wallet Address</FormLabel>
+          <FormLabel htmlFor='address'>Wallet Address</FormLabel>
 
           {
             // input field
           }
           <InputControl
-            name="address"
-            label="Enter Address"
-            colorScheme="green"
+            name='address'
+            label='Enter Address'
+            colorScheme='green'
           />
           {
             // checkbox
           }
-          <Control mb={4} colorScheme="green" name="alert_method" my={4}>
-            <FormLabel htmlFor="alert_method">Alert Method</FormLabel>
+          <Control mb={4} colorScheme='green' name='alert_method' my={4}>
+            <FormLabel htmlFor='alert_method'>Alert Method</FormLabel>
             <HStack spacing={4}>
-              <CheckboxArrayControl name="alert_method" value="telegram">
+              <CheckboxArrayControl name='alert_method' value='telegram'>
                 Telegram
               </CheckboxArrayControl>
-              <CheckboxArrayControl name="alert_method" value="twitter">
+              <CheckboxArrayControl name='alert_method' value='twitter'>
                 Twitter
               </CheckboxArrayControl>
-              <CheckboxArrayControl name="alert_method" value="email">
+              <CheckboxArrayControl name='alert_method' value='email'>
                 Email
               </CheckboxArrayControl>
             </HStack>
-            <Error name="alert_method" />
+            <Error name='alert_method' />
           </Control>
 
-          <Control mb={4} colorScheme="green" name="conditions" my={4}>
-            <FormLabel htmlFor="conditions">Conditions</FormLabel>
+          <Control mb={4} colorScheme='green' name='conditions' my={4}>
+            <FormLabel htmlFor='conditions'>Conditions</FormLabel>
 
             <Field
-              placeholder="Select option"
+              placeholder='Select option'
               spacing={4}
-              colorScheme="green"
-              name="conditions"
+              colorScheme='green'
+              name='conditions'
               component={ReactSelectAdapter}
             >
-              <option name="conditions" value="increase">
+              <option name='conditions' value='increase'>
                 ⬆ Increase
               </option>
-              <option name="conditions" value="decrease">
+              <option name='conditions' value='decrease'>
                 ⬇ Decrease
               </option>
-              <option name="conditions" value="change">
+              <option name='conditions' value='change'>
                 𝚫 Change
               </option>
             </Field>
-            <Error name="conditions" />
+            <Error name='conditions' />
           </Control>
 
           {
             // input field
           }
-          <FormLabel htmlFor="threshold">Threshold</FormLabel>
+          <FormLabel htmlFor='threshold'>Threshold</FormLabel>
           <InputControlLeftIcon
-            name="threshold"
-            colorScheme="green"
-            type="number"
+            name='threshold'
+            colorScheme='green'
+            type='number'
           />
 
           <TextareaControl
-            name="notes"
-            label="Notes"
-            placeholder="e.g. Coinbase ETH Whale"
+            name='notes'
+            label='Notes'
+            placeholder='e.g. Coinbase ETH Whale'
           />
           <ButtonGroup spacing={4}>
             {
@@ -142,16 +152,16 @@ export const WatchAddress = () => {
             }
             <Button
               isLoading={submitting}
-              loadingText="Submitting"
-              colorScheme="green"
-              type="submit"
+              loadingText='Submitting'
+              colorScheme='green'
+              type='submit'
               isDisabled={pristine}
             >
               Set Alert
             </Button>
             <Button
-              colorScheme="green"
-              variant="outline"
+              colorScheme='green'
+              variant='outline'
               onClick={() => {
                 form.reset();
               }}
@@ -204,10 +214,10 @@ const InputControlLeftIcon = ({ name, label, type }) => {
     <Control name={name} my={4}>
       <InputGroup>
         <InputLeftElement
-          pointerEvents="none"
-          color="gray.300"
-          fontSize="1.2em"
-          children="$"
+          pointerEvents='none'
+          color='gray.300'
+          fontSize='1.2em'
+          children='$'
         />
         <Input
           {...input}
@@ -227,11 +237,9 @@ const CheckboxArrayControl = ({ name, value, children }) => {
     input: { checked, ...input },
     meta: { error, touched },
   } = useField(name, {
-    type: "checkbox", // important for RFF to manage the checked prop
+    type: 'checkbox', // important for RFF to manage the checked prop
     value, // important for RFF to manage list of strings
-  });import { Moralis } from 'moralis';
-import { Moralis } from 'moralis';
-import { Moralis } from 'moralis';
+  });
 
   return (
     <Checkbox {...input} isChecked={checked} isInvalid={error && touched}>
